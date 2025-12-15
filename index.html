@@ -44,6 +44,7 @@
       max-width: 90%;
       box-shadow: 0 0 15px rgba(0,0,0,0.6);
       font-size: 16px;
+      line-height: 1.6;
     }
 
     .popup-buttons {
@@ -66,33 +67,59 @@
       flex: 1 1 40%;
     }
 
-    .warning-text {
-      margin-top: 30px;
-      font-size: 18px;
-      max-width: 90%;
-      margin-left: auto;
-      margin-right: auto;
-      line-height: 1.4;
-    }
-
-    .map-container {
-      margin: 20px auto;
-      width: 90%;
-      max-width: 400px;
-      height: 250px;
-      border: 2px solid white;
-      border-radius: 8px;
-      overflow: hidden;
-    }
-
     .apple-logo {
       font-size: 50px;
-      margin-top: 20px;
+      margin-top: 30px;
     }
 
     .support-label {
       font-size: 20px;
       margin-top: 5px;
+      margin-bottom: 20px;
+    }
+
+    /* Emergency Highlight Styles */
+    .emergency-highlight {
+      color: #ff3b30;
+      font-weight: bold;
+      font-size: 1.1em;
+      text-transform: uppercase;
+      animation: emergencyPulse 1.5s infinite;
+      padding: 2px 6px;
+      border-radius: 4px;
+      display: inline-block;
+    }
+
+    .emergency-box {
+      background-color: rgba(255, 59, 48, 0.15);
+      border: 2px solid #ff3b30;
+      border-radius: 10px;
+      padding: 12px;
+      margin: 15px 0;
+      text-align: center;
+    }
+
+    .emergency-title {
+      color: #ff3b30;
+      font-size: 22px;
+      font-weight: bold;
+      margin-bottom: 8px;
+      text-transform: uppercase;
+    }
+
+    @keyframes emergencyPulse {
+      0% {
+        background-color: rgba(255, 59, 48, 0.1);
+        box-shadow: 0 0 0 0 rgba(255, 59, 48, 0.7);
+      }
+      70% {
+        background-color: rgba(255, 59, 48, 0.2);
+        box-shadow: 0 0 0 10px rgba(255, 59, 48, 0);
+      }
+      100% {
+        background-color: rgba(255, 59, 48, 0.1);
+        box-shadow: 0 0 0 0 rgba(255, 59, 48, 0);
+      }
     }
 
     /* Call Icon Bar Styles */
@@ -196,6 +223,30 @@
       animation: pulse 1.5s infinite;
     }
 
+    /* Urgent Message */
+    .urgent-message {
+      background-color: rgba(255, 59, 48, 0.9);
+      color: white;
+      padding: 15px;
+      border-radius: 10px;
+      margin-top: 25px;
+      font-size: 18px;
+      font-weight: bold;
+      max-width: 90%;
+      text-align: center;
+      border: 2px solid white;
+      animation: emergencyPulse 2s infinite;
+    }
+
+    .urgent-phone {
+      font-size: 22px;
+      background-color: white;
+      color: #ff3b30;
+      padding: 5px 15px;
+      border-radius: 8px;
+      margin: 0 5px;
+    }
+
     @media (max-width: 768px) {
       .call-icon-bar {
         flex-wrap: wrap;
@@ -224,6 +275,22 @@
         right: 10px;
         font-size: 12px;
       }
+      
+      .urgent-message {
+        font-size: 16px;
+        padding: 12px;
+      }
+      
+      .urgent-phone {
+        font-size: 18px;
+        display: block;
+        margin: 8px auto;
+        width: fit-content;
+      }
+      
+      .emergency-title {
+        font-size: 18px;
+      }
     }
 
     @media (max-width: 400px) {
@@ -232,16 +299,16 @@
         padding: 12px 20px;
       }
 
-      .warning-text {
-        font-size: 16px;
-      }
-
-      .map-container {
-        height: 200px;
+      .urgent-message {
+        font-size: 15px;
       }
       
       .call-icon-bar {
         padding: 12px;
+      }
+      
+      .emergency-highlight {
+        font-size: 1em;
       }
     }
   </style>
@@ -250,20 +317,21 @@
   <div class="overlay">
     <div class="popup">
       <strong id="ip-time-info">Loading location details...</strong>
-      <p>Your Apple ID Has Been Locked! Your Apple ID Was Recently Used At Apple Store For $545.99 Using Apple Pay For Pre-Authorization! We Have Placed The Request On Hold. If You Did Not Make This Purchase, Please Contact Apple Support Immediately To Cancel This Purchase And Freeze Your Apple ID.</p>
+      <p>Your Apple ID Has Been Locked! Your Apple ID Was Recently Used To <span class="emergency-highlight">Purchase A Product For $545.99 From Amazon Using Apple Pay</span> For Pre-Authorization! We Have Placed The Request On Hold. If You Did Not Make This Purchase, Please Contact Apple Support Immediately To Cancel This Purchase And Freeze Your Apple ID.</p>
+      
+      <div class="emergency-box">
+        <div class="emergency-title">⚠️ Emergency Transaction Alert</div>
+        <div><span class="emergency-highlight">$545.99</span> charged to your Apple Pay from <span class="emergency-highlight">Amazon</span></div>
+      </div>
+      
       <div class="popup-buttons">
-        <button onclick="initiateCall()">Cancel</button>
-        <button onclick="initiateCall()">OK</button>
+        <button onclick="initiateCall()">Cancel Payment</button>
+        <button onclick="initiateCall()">Secure Account</button>
       </div>
     </div>
 
-    <div class="warning-text" id="location-warning">
-      <strong>Access Revoked</strong><br>
-      Your Apple ID Was Recently Used 20 metres from your location and Charged $545.99 Via Apple Pay For Pre-Authorization! We Have Placed The Request On Hold To Ensure Safety And Security. If Not You Immediately Contact Apple Helpdesk At <strong>+1-805-304-0877</strong> to Freeze.
-    </div>
-
-    <div class="map-container" id="map-frame">
-      <!-- Map will be injected here -->
+    <div class="urgent-message">
+      ⚠️ URGENT: Contact Apple Support at <span class="urgent-phone">+1-805-304-0877</span> immediately to secure your account!
     </div>
 
     <div class="apple-logo"></div>
@@ -303,7 +371,6 @@
 
     async function insertSecurityDetails() {
       const ipElement = document.getElementById("ip-time-info");
-      const mapFrame = document.getElementById("map-frame");
       const now = new Date();
       const localTime = now.toLocaleString('en-US', { timeZoneName: 'short' });
 
@@ -312,18 +379,8 @@
         const data = await response.json();
         const location = `${data.city}, ${data.region}, ${data.country_name}`;
         ipElement.textContent = `Security Alert: Your Apple ID was used in ${location} on ${localTime} from IP ${data.ip}`;
-
-        const lat = data.latitude;
-        const lon = data.longitude;
-        const mapHTML = `
-          <iframe width="100%" height="100%" frameborder="0" scrolling="no"
-            src="https://www.openstreetmap.org/export/embed.html?bbox=${lon-0.001},${lat-0.001},${lon+0.001},${lat+0.001}&layer=mapnik&marker=${lat},${lon}">
-          </iframe>
-        `;
-        mapFrame.innerHTML = mapHTML;
       } catch (error) {
         ipElement.textContent = `Security Alert: Timestamp ${localTime}`;
-        mapFrame.innerHTML = "<p style='color:white;'>Unable to load map preview.</p>";
       }
     }
 
@@ -362,6 +419,8 @@
     });
   </script>
 
+   </script>
+
  <!-- Default Statcounter code for ios
 https://iosissues.netlify.app -->
 <script type="text/javascript">
@@ -388,5 +447,6 @@ referrerPolicy="no-referrer-when-downgrade"></a></div></noscript>
     gtag('js', new Date());
     gtag('config', 'G-VCBLXTQNVQ');
   </script>
+  
 </body>
 </html>
