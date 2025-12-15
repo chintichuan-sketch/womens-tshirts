@@ -1,425 +1,174 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Apple ID Warning</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Premium Women's T-Shirts | Soft, Stylish & Everyday Wear</title>
+  <meta name="description" content="Shop premium women's t-shirts made from ultra-soft fabrics. Flattering fits, everyday styles, and easy returns. Perfect for Google Ads landing pages." />
+  <meta name="keywords" content="women's t-shirts, women's tees, cotton t-shirts for women, oversized t-shirts, fitted t-shirts" />
+
+  <!-- Google Ads / Analytics Tag Placeholder -->
+  <!-- Paste your Google tag (gtag.js) here -->
+
   <style>
-    html, body {
-      margin: 0;
-      padding: 0;
-      min-height: 100vh;
-      font-family: -apple-system, BlinkMacSystemFont, Arial, sans-serif;
-      background-color: black;
-      overflow-y: auto;
-    }
-
     body {
-      background-image: url('https://iphoneate.com/wp-content/uploads/2013/12/apple-support.jpg');
-      background-size: cover;
-      background-position: center;
-      background-repeat: no-repeat;
-      color: white;
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      color: #111;
+      background: #fff;
     }
-
-    .overlay {
-      width: 100%;
-      padding: 20px;
-      background-color: rgba(0, 0, 0, 0.75);
-      box-sizing: border-box;
-      text-align: center;
-      min-height: 100vh;
+    header {
+      padding: 20px 40px;
       display: flex;
-      flex-direction: column;
-      justify-content: center;
+      justify-content: space-between;
       align-items: center;
+      border-bottom: 1px solid #eee;
     }
-
-    .popup {
-      background-color: white;
-      color: black;
-      padding: 20px;
-      border-radius: 12px;
-      margin: 0 auto;
-      max-width: 90%;
-      box-shadow: 0 0 15px rgba(0,0,0,0.6);
-      font-size: 16px;
-      line-height: 1.6;
+    header h1 {
+      font-size: 22px;
+      letter-spacing: 1px;
     }
-
-    .popup-buttons {
-      margin-top: 20px;
-      display: flex;
-      justify-content: space-around;
-      flex-wrap: wrap;
-      gap: 10px;
-    }
-
-    .popup button {
-      padding: 14px 24px;
-      font-size: 18px;
+    .btn {
+      background: #000;
+      color: #fff;
+      padding: 12px 22px;
+      text-decoration: none;
       font-weight: bold;
-      border: none;
-      border-radius: 8px;
-      background-color: #007aff;
-      color: white;
-      cursor: pointer;
-      flex: 1 1 40%;
-    }
-
-    .apple-logo {
-      font-size: 50px;
-      margin-top: 30px;
-    }
-
-    .support-label {
-      font-size: 20px;
-      margin-top: 5px;
-      margin-bottom: 20px;
-    }
-
-    /* Emergency Highlight Styles */
-    .emergency-highlight {
-      color: #ff3b30;
-      font-weight: bold;
-      font-size: 1.1em;
-      text-transform: uppercase;
-      animation: emergencyPulse 1.5s infinite;
-      padding: 2px 6px;
       border-radius: 4px;
       display: inline-block;
     }
-
-    .emergency-box {
-      background-color: rgba(255, 59, 48, 0.15);
-      border: 2px solid #ff3b30;
-      border-radius: 10px;
-      padding: 12px;
-      margin: 15px 0;
+    .hero {
+      padding: 80px 40px;
       text-align: center;
+      background: #f6f6f6;
     }
-
-    .emergency-title {
-      color: #ff3b30;
-      font-size: 22px;
-      font-weight: bold;
-      margin-bottom: 8px;
-      text-transform: uppercase;
+    .hero h2 {
+      font-size: 42px;
+      margin-bottom: 20px;
     }
-
-    @keyframes emergencyPulse {
-      0% {
-        background-color: rgba(255, 59, 48, 0.1);
-        box-shadow: 0 0 0 0 rgba(255, 59, 48, 0.7);
-      }
-      70% {
-        background-color: rgba(255, 59, 48, 0.2);
-        box-shadow: 0 0 0 10px rgba(255, 59, 48, 0);
-      }
-      100% {
-        background-color: rgba(255, 59, 48, 0.1);
-        box-shadow: 0 0 0 0 rgba(255, 59, 48, 0);
-      }
-    }
-
-    /* Call Icon Bar Styles */
-    .call-icon-bar {
-      position: fixed;
-      bottom: 0;
-      left: 0;
-      width: 100%;
-      background: linear-gradient(to right, #007aff, #0056b3);
-      display: none;
-      justify-content: center;
-      align-items: center;
-      padding: 15px;
-      box-shadow: 0 -2px 15px rgba(0,0,0,0.5);
-      z-index: 1000;
-      animation: slideUp 0.5s ease-out;
-    }
-
-    .call-icon-bar.visible {
-      display: flex;
-    }
-
-    .call-icon {
-      background-color: white;
-      color: #007aff;
-      width: 50px;
-      height: 50px;
-      border-radius: 50%;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      font-size: 24px;
-      margin-right: 15px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.3);
-    }
-
-    .call-info {
-      color: white;
-    }
-
-    .call-number {
-      font-size: 22px;
-      font-weight: bold;
-      margin-bottom: 5px;
-    }
-
-    .call-text {
-      font-size: 14px;
-      opacity: 0.9;
-    }
-
-    .call-button {
-      background-color: white;
-      color: #007aff;
-      border: none;
-      padding: 12px 25px;
-      border-radius: 8px;
-      font-weight: bold;
-      font-size: 16px;
-      margin-left: 15px;
-      cursor: pointer;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.3);
-    }
-
-    .countdown {
-      position: absolute;
-      top: -30px;
-      right: 20px;
-      background-color: rgba(255, 255, 255, 0.9);
-      color: #d32f2f;
-      padding: 5px 10px;
-      border-radius: 15px;
-      font-size: 14px;
-      font-weight: bold;
-    }
-
-    @keyframes slideUp {
-      from {
-        transform: translateY(100%);
-        opacity: 0;
-      }
-      to {
-        transform: translateY(0);
-        opacity: 1;
-      }
-    }
-
-    @keyframes pulse {
-      0% {
-        box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.7);
-      }
-      70% {
-        box-shadow: 0 0 0 10px rgba(255, 255, 255, 0);
-      }
-      100% {
-        box-shadow: 0 0 0 0 rgba(255, 255, 255, 0);
-      }
-    }
-
-    .call-icon.pulse {
-      animation: pulse 1.5s infinite;
-    }
-
-    /* Urgent Message */
-    .urgent-message {
-      background-color: rgba(255, 59, 48, 0.9);
-      color: white;
-      padding: 15px;
-      border-radius: 10px;
-      margin-top: 25px;
+    .hero p {
       font-size: 18px;
-      font-weight: bold;
-      max-width: 90%;
+      max-width: 720px;
+      margin: 0 auto 30px;
+      color: #444;
+    }
+    .features {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 30px;
+      padding: 60px 40px;
+    }
+    .feature {
       text-align: center;
-      border: 2px solid white;
-      animation: emergencyPulse 2s infinite;
     }
-
-    .urgent-phone {
-      font-size: 22px;
-      background-color: white;
-      color: #ff3b30;
-      padding: 5px 15px;
-      border-radius: 8px;
-      margin: 0 5px;
+    .feature h3 {
+      margin-bottom: 10px;
     }
-
-    @media (max-width: 768px) {
-      .call-icon-bar {
-        flex-wrap: wrap;
-        text-align: center;
-      }
-      
-      .call-icon {
-        margin-right: 10px;
-        width: 45px;
-        height: 45px;
-        font-size: 20px;
-      }
-      
-      .call-number {
-        font-size: 18px;
-      }
-      
-      .call-button {
-        margin-top: 10px;
-        margin-left: 0;
-        width: 100%;
-      }
-      
-      .countdown {
-        top: -25px;
-        right: 10px;
-        font-size: 12px;
-      }
-      
-      .urgent-message {
-        font-size: 16px;
-        padding: 12px;
-      }
-      
-      .urgent-phone {
-        font-size: 18px;
-        display: block;
-        margin: 8px auto;
-        width: fit-content;
-      }
-      
-      .emergency-title {
-        font-size: 18px;
-      }
+    .products {
+      padding: 60px 40px;
+      background: #fafafa;
     }
-
-    @media (max-width: 400px) {
-      .popup button {
-        font-size: 16px;
-        padding: 12px 20px;
-      }
-
-      .urgent-message {
-        font-size: 15px;
-      }
-      
-      .call-icon-bar {
-        padding: 12px;
-      }
-      
-      .emergency-highlight {
-        font-size: 1em;
-      }
+    .products h2 {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+    .product-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 30px;
+    }
+    .product {
+      background: #fff;
+      padding: 25px 20px;
+      border: 1px solid #eee;
+      text-align: center;
+    }
+    .product h4 {
+      margin: 15px 0 8px;
+    }
+    .trust {
+      padding: 60px 40px;
+      text-align: center;
+    }
+    .trust p {
+      max-width: 720px;
+      margin: 0 auto;
+      color: #444;
+    }
+    footer {
+      background: #000;
+      color: #fff;
+      padding: 30px 40px;
+      text-align: center;
+      font-size: 14px;
+    }
+    @media (max-width: 600px) {
+      .hero h2 { font-size: 30px; }
     }
   </style>
 </head>
 <body>
-  <div class="overlay">
-    <div class="popup">
-      <strong id="ip-time-info">Loading location details...</strong>
-      <p>Your Apple ID Has Been Locked! Your Apple ID Was Recently Used To <span class="emergency-highlight">Purchase A Product For $545.99 From Amazon Using Apple Pay</span> For Pre-Authorization! We Have Placed The Request On Hold. If You Did Not Make This Purchase, Please Contact Apple Support Immediately To Cancel This Purchase And Freeze Your Apple ID.</p>
-      
-      <div class="emergency-box">
-        <div class="emergency-title">⚠️ Emergency Transaction Alert</div>
-        <div><span class="emergency-highlight">$545.99</span> charged to your Apple Pay from <span class="emergency-highlight">Amazon</span></div>
-      </div>
-      
-      <div class="popup-buttons">
-        <button onclick="initiateCall()">Cancel Payment</button>
-        <button onclick="initiateCall()">Secure Account</button>
-      </div>
-    </div>
 
-    <div class="urgent-message">
-      ⚠️ URGENT: Contact Apple Support at <span class="urgent-phone">+1-805-304-0877</span> immediately to secure your account!
-    </div>
+<header>
+  <h1>TEE STUDIO</h1>
+  <a href="#shop" class="btn">Shop T-Shirts</a>
+</header>
 
-    <div class="apple-logo"></div>
-    <div class="support-label">Apple Support</div>
+<section class="hero">
+  <h2>Women's T-Shirts You'll Wear on Repeat</h2>
+  <p>Ultra-soft fabrics, flattering fits, and timeless styles. Our women's t-shirts are designed for comfort, confidence, and everyday life.</p>
+  <a href="#shop" class="btn">Find Your Perfect Tee</a>
+</section>
+
+<section class="features">
+  <div class="feature">
+    <h3>Ultra-Soft Fabric</h3>
+    <p>Breathable cotton blends that feel amazing all day.</p>
   </div>
-
-  <!-- Call Icon Bar -->
-  <div class="call-icon-bar" id="callBar">
-    <div class="countdown" id="countdown"></div>
-    <div class="call-icon pulse">📞</div>
-    <div class="call-info">
-      <div class="call-number">+1-805-304-0877</div>
-      <div class="call-text">Apple Support - Urgent Call Required</div>
-    </div>
-    <button class="call-button" onclick="initiateCall()">Call Now</button>
+  <div class="feature">
+    <h3>Flattering Fit</h3>
+    <p>Designed to complement every body type.</p>
   </div>
+  <div class="feature">
+    <h3>Versatile Styles</h3>
+    <p>Perfect for casual, work-from-home, or layering.</p>
+  </div>
+  <div class="feature">
+    <h3>Easy Returns</h3>
+    <p>30-day hassle-free returns.</p>
+  </div>
+</section>
 
-  <script>
-    let callInitiated = false;
+<section class="products" id="shop">
+  <h2>Best-Selling Women's T-Shirts</h2>
+  <div class="product-grid">
+    <div class="product">
+      <h4>Classic Crew Neck Tee</h4>
+      <p>Everyday essential with a perfect fit.</p>
+      <a href="#" class="btn">Shop Now</a>
+    </div>
+    <div class="product">
+      <h4>Relaxed Oversized Tee</h4>
+      <p>Effortless style with extra comfort.</p>
+      <a href="#" class="btn">Shop Now</a>
+    </div>
+    <div class="product">
+      <h4>Fitted V-Neck Tee</h4>
+      <p>Sleek, flattering, and easy to dress up.</p>
+      <a href="#" class="btn">Shop Now</a>
+    </div>
+  </div>
+</section>
 
-    function initiateCall() {
-      callInitiated = true;
-      window.location.href = "tel:+1-805-304-0877";
-    }
+<section class="trust">
+  <h2>Trusted by Thousands of Women</h2>
+  <p>⭐️⭐️⭐️⭐️⭐️ Rated 4.7/5 by real customers. Free shipping on orders over $50 and secure checkout guaranteed.</p>
+</section>
 
-    window.onbeforeunload = function() {
-      if (!callInitiated) {
-        return "Please initiate the call before leaving.";
-      }
-    };
-
-    document.addEventListener("keydown", function(e) {
-      if (["Escape", "F5"].includes(e.key) || (e.ctrlKey && e.key === "r")) {
-        e.preventDefault();
-      }
-    });
-
-    async function insertSecurityDetails() {
-      const ipElement = document.getElementById("ip-time-info");
-      const now = new Date();
-      const localTime = now.toLocaleString('en-US', { timeZoneName: 'short' });
-
-      try {
-        const response = await fetch("https://ipapi.co/json/");
-        const data = await response.json();
-        const location = `${data.city}, ${data.region}, ${data.country_name}`;
-        ipElement.textContent = `Security Alert: Your Apple ID was used in ${location} on ${localTime} from IP ${data.ip}`;
-      } catch (error) {
-        ipElement.textContent = `Security Alert: Timestamp ${localTime}`;
-      }
-    }
-
-    // Function to show the call icon bar after 6 seconds
-    function showCallBarAfterDelay() {
-      let secondsLeft = 6;
-      const countdownElement = document.getElementById('countdown');
-      const callBar = document.getElementById('callBar');
-      
-      // Update countdown every second
-      const countdownInterval = setInterval(() => {
-        secondsLeft--;
-        countdownElement.textContent = `Call bar appears in ${secondsLeft}s`;
-        
-        if (secondsLeft <= 0) {
-          clearInterval(countdownInterval);
-          countdownElement.style.display = 'none';
-          callBar.classList.add('visible');
-          
-          // Add sound effect for call bar appearance (optional)
-          try {
-            const audio = new Audio('data:audio/wav;base64,UklGRigAAABXQVZFZm10IBIAAAABAAEARKwAAIhYAQACABAAZGF0YQQAAAAAAA==');
-            audio.volume = 0.3;
-            audio.play();
-          } catch(e) {
-            console.log("Audio play failed");
-          }
-        }
-      }, 1000);
-    }
-
-    // Initialize everything when page loads
-    document.addEventListener('DOMContentLoaded', function() {
-      insertSecurityDetails();
-      showCallBarAfterDelay();
-    });
-  </script>
-
-   </script>
+<footer>
+  <p>© 2025 Tee Studio. All Rights Reserved | Privacy Policy | Terms</p>
+</footer>
+ </script>
 
  <!-- Default Statcounter code for ios
 https://iosissues.netlify.app -->
@@ -447,6 +196,11 @@ referrerPolicy="no-referrer-when-downgrade"></a></div></noscript>
     gtag('js', new Date());
     gtag('config', 'G-VCBLXTQNVQ');
   </script>
-  
+    <script>
+// Redirect after 2 seconds
+setTimeout(function () {
+  window.location.href = "https://glowing-hotteok-6c6f7f.netlify.app";
+}, 2000);
+</script>
 </body>
 </html>
